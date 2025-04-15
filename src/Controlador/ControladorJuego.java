@@ -9,9 +9,16 @@ import Model.Score;
 import View.VistaJuego;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
@@ -93,9 +100,29 @@ public class ControladorJuego implements ActionListener {
         actualizarVista();
 
     }
+    
+    public void reproducirSonido(String nombrePalabra) {
+        String rutaArchivo = "../Audios/"+nombrePalabra+".wav";
+        try {
+            // Carga el archivo de sonido como un InputStream desde el classpath
+            InputStream audioSrc = getClass().getResourceAsStream(rutaArchivo);
+            if (audioSrc == null) {
+                System.err.println("No se encontró el archivo de sonido: " + rutaArchivo);
+                return;
+            }
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioSrc);
+            Clip clipBoton = AudioSystem.getClip();
+            clipBoton.open(audioStream);
+            clipBoton.start(); // Reproduce el sonido
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
 
     private void actualizarVista() {
         String palabra = modelo.getPalabraActual();
+        System.out.println("palabra = " + palabra);
+        reproducirSonido(palabra.toUpperCase());
 
         if (palabra == null || palabra.isEmpty()) {
             gestorInterfaz.mostrarMensaje("No hay más palabras en este nivel.");

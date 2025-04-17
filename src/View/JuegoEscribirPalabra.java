@@ -40,6 +40,7 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         campoRespuesta = new javax.swing.JTextField();
         botonComprobar = new javax.swing.JButton();
+        botonReproducirSonido = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +55,9 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         botonComprobar.setContentAreaFilled(false);
         botonComprobar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        botonReproducirSonido.setContentAreaFilled(false);
+        botonReproducirSonido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -64,14 +68,20 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(botonComprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, Short.MAX_VALUE)
                 .addContainerGap(210, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(309, 309, 309)
+                .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(436, Short.MAX_VALUE)
+                .addGap(193, 193, 193)
+                .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonComprobar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(campoRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
+                    .addComponent(campoRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
                 .addGap(67, 67, 67))
         );
 
@@ -139,6 +149,7 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botonComprobar;
+    public javax.swing.JButton botonReproducirSonido;
     public javax.swing.JTextField campoRespuesta;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

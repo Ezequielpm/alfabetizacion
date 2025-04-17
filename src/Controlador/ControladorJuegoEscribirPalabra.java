@@ -37,6 +37,7 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
         this.objJuegoEscribirPalabra = objJuegoEscribirPalabra;
         this.objJuegoEscribirPalabra.campoRespuesta.addActionListener(this);
         this.objJuegoEscribirPalabra.botonComprobar.addActionListener(this);
+        this.objJuegoEscribirPalabra.botonReproducirSonido.addActionListener(this);
         this.objJuegoEscribirPalabra.campoRespuesta.setBackground(new Color(0, 0, 0, 0));
         inicializarPalabra();
         System.out.println(palabraActual);
@@ -45,6 +46,7 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
     private void inicializarPalabra() {
         palabraActual = elegirPalabraAleatoria(listaPalabrasFacil);
         reproducirSonido(palabraActual);
+        restablecerCursor();
     }
 
     private String elegirPalabraAleatoria(String[] arrayDePalabras) {
@@ -64,6 +66,11 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
     
     private void limpiarCampoRespuesta(){
         this.objJuegoEscribirPalabra.campoRespuesta.setText("");
+        restablecerCursor();
+        
+    }
+    
+    private void restablecerCursor(){
         this.objJuegoEscribirPalabra.campoRespuesta.requestFocusInWindow();
     }
 
@@ -81,6 +88,10 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
                 mensajeFracaso();
             }
 
+            return;
+        }
+        if(e.getSource()==this.objJuegoEscribirPalabra.botonReproducirSonido){
+            reproducirSonido(palabraActual);
             return;
         }
     }

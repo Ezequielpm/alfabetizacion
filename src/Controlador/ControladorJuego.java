@@ -22,6 +22,8 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import main.java.Controlador.GeneradorLetras;
+import Controlador.GestorInterfaz;
 
 /**
  *

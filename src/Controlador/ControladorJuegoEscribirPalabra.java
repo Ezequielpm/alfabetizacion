@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controlador;
-
 import View.JuegoEscribirPalabra;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -23,7 +22,7 @@ import javax.swing.JOptionPane;
  * @author ezequielpena
  */
 public class ControladorJuegoEscribirPalabra implements ActionListener {
-
+    int puntajeGanado = 0;
     JuegoEscribirPalabra objJuegoEscribirPalabra;
     String[] listaPalabrasFacil
             = {"correr", "pintar", "leer", "escribir", "bailar",
@@ -38,7 +37,9 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
         this.objJuegoEscribirPalabra.campoRespuesta.addActionListener(this);
         this.objJuegoEscribirPalabra.botonComprobar.addActionListener(this);
         this.objJuegoEscribirPalabra.botonReproducirSonido.addActionListener(this);
+        this.objJuegoEscribirPalabra.botonCambiarPalabra.addActionListener(this);
         this.objJuegoEscribirPalabra.campoRespuesta.setBackground(new Color(0, 0, 0, 0));
+        reiniciarPuntaje();
         inicializarPalabra();
         System.out.println(palabraActual);
     }
@@ -64,6 +65,7 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
         }
     }
     
+    
     private void limpiarCampoRespuesta(){
         this.objJuegoEscribirPalabra.campoRespuesta.setText("");
         restablecerCursor();
@@ -73,11 +75,21 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
     private void restablecerCursor(){
         this.objJuegoEscribirPalabra.campoRespuesta.requestFocusInWindow();
     }
+    
+    private void reiniciarPuntaje(){
+        this.objJuegoEscribirPalabra.puntuacion.setText("0");
+    }
+    
+    private void actualizarVistaPuntaje(){
+        this.objJuegoEscribirPalabra.puntuacion.setText(String.valueOf(puntajeGanado));
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objJuegoEscribirPalabra.botonComprobar || e.getSource()==this.objJuegoEscribirPalabra.campoRespuesta) {
             if (comprobarRespuesta()) {
+                puntajeGanado+=20;
+                actualizarVistaPuntaje();
                 mensajeExitoso();
                 palabrasAdivinadasFacil.add(palabraActual);
                 cambiarPalabra();
@@ -91,6 +103,13 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
             return;
         }
         if(e.getSource()==this.objJuegoEscribirPalabra.botonReproducirSonido){
+            reproducirSonido(palabraActual);
+            return;
+        }
+        if(e.getSource()==this.objJuegoEscribirPalabra.botonCambiarPalabra){
+            cambiarPalabra();
+            limpiarCampoRespuesta();
+            restablecerCursor();
             reproducirSonido(palabraActual);
             return;
         }

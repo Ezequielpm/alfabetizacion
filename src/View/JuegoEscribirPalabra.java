@@ -41,6 +41,10 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         campoRespuesta = new javax.swing.JTextField();
         botonComprobar = new javax.swing.JButton();
         botonReproducirSonido = new javax.swing.JButton();
+        botonCambiarPalabra = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        puntuacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,34 +55,58 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         campoRespuesta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoRespuesta.setBorder(null);
         campoRespuesta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        campoRespuesta.setOpaque(true);
 
-        botonComprobar.setContentAreaFilled(false);
         botonComprobar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        botonReproducirSonido.setContentAreaFilled(false);
         botonReproducirSonido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        puntuacion.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
+        puntuacion.setText("8");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(196, Short.MAX_VALUE)
-                .addComponent(campoRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addGap(309, 309, 309)
+                .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonCambiarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(puntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(196, Short.MAX_VALUE)
+                        .addComponent(campoRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(botonComprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, Short.MAX_VALUE)
                 .addContainerGap(210, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(309, 309, 309)
-                .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(193, 193, 193)
-                .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addComponent(botonCambiarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(puntuacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonComprobar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(campoRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE))
@@ -140,7 +168,7 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         //image = new ImageIcon(getClass().getResource("/fondos/fondo__animals.png")).getImage();
         @Override
         public void paint(Graphics g) {
-            image = new ImageIcon(getClass().getResource("/fondos/fondo4.png")).getImage();
+            image = new ImageIcon(getClass().getResource("/fondos/fondo5.png")).getImage();
             g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
@@ -148,9 +176,13 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton botonCambiarPalabra;
     public javax.swing.JButton botonComprobar;
     public javax.swing.JButton botonReproducirSonido;
     public javax.swing.JTextField campoRespuesta;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JLabel puntuacion;
     // End of variables declaration//GEN-END:variables
 }

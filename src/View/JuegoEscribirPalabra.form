@@ -45,25 +45,54 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="196" max="32767" attributes="0"/>
-                  <Component id="campoRespuesta" pref="267" max="32767" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="botonComprobar" pref="71" max="32767" attributes="0"/>
-                  <EmptySpace pref="210" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="309" max="-2" attributes="0"/>
                   <Component id="botonReproducirSonido" min="-2" pref="135" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButton3" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="botonCambiarPalabra" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="jButton2" min="-2" pref="80" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="puntuacion" min="-2" pref="74" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace pref="196" max="32767" attributes="0"/>
+                          <Component id="campoRespuesta" pref="267" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="botonComprobar" pref="71" max="32767" attributes="0"/>
+                  <EmptySpace pref="210" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                  <Component id="botonReproducirSonido" min="-2" pref="128" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                          <Component id="botonCambiarPalabra" min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton3" min="-2" pref="68" max="-2" attributes="0"/>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="puntuacion" min="-2" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="botonReproducirSonido" min="-2" pref="128" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="botonComprobar" max="32767" attributes="0"/>
                       <Component id="campoRespuesta" pref="76" max="32767" attributes="0"/>
@@ -86,6 +115,7 @@
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Text Cursor"/>
             </Property>
+            <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -93,7 +123,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonComprobar">
           <Properties>
-            <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -104,10 +133,29 @@
         </Component>
         <Component class="javax.swing.JButton" name="botonReproducirSonido">
           <Properties>
-            <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="botonCambiarPalabra">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton3">
+        </Component>
+        <Component class="javax.swing.JLabel" name="puntuacion">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Helvetica Neue" size="36" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="8"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

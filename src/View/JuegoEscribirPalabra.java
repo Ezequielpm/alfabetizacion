@@ -27,6 +27,9 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         this.objControladorJuegoEscribirPalabra = new ControladorJuegoEscribirPalabra(this);
     }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,6 +48,7 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         puntuacion = new javax.swing.JLabel();
+        botonInstrucciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,20 +59,33 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
         campoRespuesta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoRespuesta.setBorder(null);
         campoRespuesta.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        campoRespuesta.setOpaque(true);
 
+        botonComprobar.setContentAreaFilled(false);
         botonComprobar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        botonReproducirSonido.setContentAreaFilled(false);
         botonReproducirSonido.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        botonCambiarPalabra.setContentAreaFilled(false);
+        botonCambiarPalabra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         puntuacion.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         puntuacion.setText("8");
+
+        botonInstrucciones.setContentAreaFilled(false);
+        botonInstrucciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(309, 309, 309)
                 .addComponent(botonReproducirSonido, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -77,7 +94,7 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
                     .addComponent(botonCambiarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -85,16 +102,24 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(196, Short.MAX_VALUE)
                         .addComponent(campoRespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(botonComprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, Short.MAX_VALUE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(botonComprobar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, Short.MAX_VALUE)
+                        .addContainerGap(210, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonInstrucciones, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
+                        .addGap(35, 35, 35)
+                        .addComponent(botonInstrucciones, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
                         .addComponent(botonCambiarPalabra, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,6 +203,7 @@ public class JuegoEscribirPalabra extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton botonCambiarPalabra;
     public javax.swing.JButton botonComprobar;
+    public javax.swing.JButton botonInstrucciones;
     public javax.swing.JButton botonReproducirSonido;
     public javax.swing.JTextField campoRespuesta;
     private javax.swing.JButton jButton2;

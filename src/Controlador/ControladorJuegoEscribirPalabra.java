@@ -3,18 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Controlador;
+
 import View.JuegoEscribirPalabra;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +27,7 @@ import javax.swing.JOptionPane;
  * @author ezequielpena
  */
 public class ControladorJuegoEscribirPalabra implements ActionListener {
+
     int puntajeGanado = 0;
     JuegoEscribirPalabra objJuegoEscribirPalabra;
     String[] listaPalabrasFacil
@@ -38,10 +44,12 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
         this.objJuegoEscribirPalabra.botonComprobar.addActionListener(this);
         this.objJuegoEscribirPalabra.botonReproducirSonido.addActionListener(this);
         this.objJuegoEscribirPalabra.botonCambiarPalabra.addActionListener(this);
+        this.objJuegoEscribirPalabra.botonInstrucciones.addActionListener(this);
         this.objJuegoEscribirPalabra.campoRespuesta.setBackground(new Color(0, 0, 0, 0));
         reiniciarPuntaje();
         inicializarPalabra();
         System.out.println(palabraActual);
+
     }
 
     private void inicializarPalabra() {
@@ -59,59 +67,102 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
     }
 
     private void cambiarPalabra() {
+        if(!(this.listaPalabrasFacil.length==this.palabrasAdivinadasFacil.size())){
         palabraActual = elegirPalabraAleatoria(listaPalabrasFacil);
         if (palabrasAdivinadasFacil.contains(palabraActual)) {
             cambiarPalabra();
-        }
+        }}
     }
-    
-    
-    private void limpiarCampoRespuesta(){
+
+    private void limpiarCampoRespuesta() {
         this.objJuegoEscribirPalabra.campoRespuesta.setText("");
         restablecerCursor();
-        
+
     }
-    
-    private void restablecerCursor(){
+
+    private void restablecerCursor() {
         this.objJuegoEscribirPalabra.campoRespuesta.requestFocusInWindow();
     }
-    
-    private void reiniciarPuntaje(){
+
+    private void reiniciarPuntaje() {
         this.objJuegoEscribirPalabra.puntuacion.setText("0");
     }
-    
-    private void actualizarVistaPuntaje(){
+
+    private void actualizarVistaPuntaje() {
         this.objJuegoEscribirPalabra.puntuacion.setText(String.valueOf(puntajeGanado));
+    }
+    
+    private void mensajeNivelCompletado(){
+        reproducirSonido("nivel_completado");
+    }
+    
+    private void proponerReto(){
+        int palabrasAdivinadas = this.palabrasAdivinadasFacil.size();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.objJuegoEscribirPalabra.botonComprobar || e.getSource()==this.objJuegoEscribirPalabra.campoRespuesta) {
+        if (e.getSource() == this.objJuegoEscribirPalabra.botonComprobar || e.getSource() == this.objJuegoEscribirPalabra.campoRespuesta) {
             if (comprobarRespuesta()) {
-                puntajeGanado+=20;
+                reproducirSonido("puntos");
+                puntajeGanado += 20;
                 actualizarVistaPuntaje();
                 mensajeExitoso();
                 palabrasAdivinadasFacil.add(palabraActual);
                 cambiarPalabra();
-                reproducirSonido(palabraActual);
+                if(!(this.listaPalabrasFacil.length==this.palabrasAdivinadasFacil.size())){
+                    reproducirSonido(palabraActual);
+                }
+                
                 limpiarCampoRespuesta();
                 System.out.println(palabraActual);
+                if(this.listaPalabrasFacil.length==this.palabrasAdivinadasFacil.size()){
+                    mensajeNivelCompletado();
+                }
             } else {
                 mensajeFracaso();
             }
 
             return;
         }
-        if(e.getSource()==this.objJuegoEscribirPalabra.botonReproducirSonido){
+        if (e.getSource() == this.objJuegoEscribirPalabra.botonReproducirSonido) {
             reproducirSonido(palabraActual);
             return;
         }
-        if(e.getSource()==this.objJuegoEscribirPalabra.botonCambiarPalabra){
+        if (e.getSource() == this.objJuegoEscribirPalabra.botonCambiarPalabra) {
             cambiarPalabra();
             limpiarCampoRespuesta();
             restablecerCursor();
             reproducirSonido(palabraActual);
             return;
+        }
+        if (e.getSource() == this.objJuegoEscribirPalabra.botonInstrucciones) {
+            desactivarBotones();
+            reproducirSonido("instrucciones");
+            try {
+                Thread.sleep(44000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ControladorJuegoEscribirPalabra.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            activarBotones();
+            return;
+        }
+    }
+
+    private void desactivarBotones() {
+        for (Object obj : this.objJuegoEscribirPalabra.getComponents()) {
+            if (obj instanceof JButton boton) {
+                boton.setEnabled(false);
+            }
+        }
+    }
+
+    private void activarBotones() {
+        for (Object obj : this.objJuegoEscribirPalabra.getComponents()) {
+
+            if (obj instanceof JButton boton) {
+                boton.setEnabled(false);
+            }
         }
     }
 
@@ -127,10 +178,9 @@ public class ControladorJuegoEscribirPalabra implements ActionListener {
     private void mensajeFracaso() {
         JOptionPane.showMessageDialog(objJuegoEscribirPalabra, "Vuelve a intentarlo!");
     }
-    
-    
+
     public void reproducirSonido(String nombreAudio) {
-        String rutaArchivo = "../resources/audios_juegos/escribir_palabra/facil/"+nombreAudio+".wav";
+        String rutaArchivo = "../resources/audios_juegos/escribir_palabra/facil/" + nombreAudio + ".wav";
         try {
             // Carga el archivo de sonido como un InputStream desde el classpath
             InputStream audioSrc = getClass().getResourceAsStream(rutaArchivo);
